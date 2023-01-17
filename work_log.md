@@ -88,3 +88,17 @@ aws ec2コマンドで確認
 ```
 
 確かに作られている
+
+```bash
+ ~/gh/g/1/tf-simple-wsgi-on-aws | 1-setup-elb-..by-terraform ?4
+> terraform destroy
+
+...
+
+aws_instance.sample: Destruction complete after 31s
+
+Destroy complete! Resources: 1 destroyed.
+ ~/gh/g/1/tf-simple-wsgi-on-aws | 1-setup-elb-..by-terraform ?4
+>
+
+```
