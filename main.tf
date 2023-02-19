@@ -20,11 +20,3 @@ terraform {
   }
 }
 
-resource "aws_instance" "sample" {
-  ami           = "ami-830c94e3"
-  instance_type = "t2.micro"
-
-  tags = {
-    Name = "ExampleAppServerInstance"
-  }
-}
