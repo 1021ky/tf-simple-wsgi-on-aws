@@ -102,3 +102,7 @@ Destroy complete! Resources: 1 destroyed.
 >
 
 ```
+
+## つまづきメモ
+
+awsの1リージョンあたりの VPC の数の上限値ってデフォルトだと5なんですね。会社アカウントだと何十個もあってそれに見慣れていたから5つしかないのに上限いってますよってエラーが出て困惑した。<https://docs.aws.amazon.com/ja_jp/vpc/latest/userguide/amazon-vpc-limits.html>
