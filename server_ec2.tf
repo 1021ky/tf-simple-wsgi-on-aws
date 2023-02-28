@@ -1,5 +1,5 @@
 # ec2用ami
-data "aws_ami" "amzn2" {
+data "aws_ami" "ubuntu20_ami" {
   most_recent = true
 
   filter {
@@ -16,9 +16,9 @@ data "aws_ami" "amzn2" {
 }
 
 resource "aws_instance" "web" {
-  ami           = data.aws_ami.amzn2.id
+  ami           = data.aws_ami.ubuntu20_ami.id
   instance_type = "t3.nano"
-  subnet_id     = aws_subnet.main.id
+  subnet_id     = aws_subnet.public-subnet.id
 
   tags = {
     Name = "webserver"
@@ -26,9 +26,9 @@ resource "aws_instance" "web" {
 }
 
 resource "aws_instance" "app" {
-  ami           = data.aws_ami.amzn2.id
+  ami           = data.aws_ami.ubuntu20_ami.id
   instance_type = "t3.nano"
-  subnet_id     = aws_subnet.main.id
+  subnet_id     = aws_subnet.public-subnet.id
 
   tags = {
     Name = "appserver"
