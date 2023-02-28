@@ -18,7 +18,7 @@ data "aws_ami" "ubuntu20_ami" {
 resource "aws_instance" "basation" {
   ami           = data.aws_ami.ubuntu20_ami.id
   instance_type = "t3.nano"
-  subnet_id     = aws_subnet.main.id
+  subnet_id     = aws_subnet.public-subnet.id
 
   tags = {
     Name = "webserver"
