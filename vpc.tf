@@ -1,4 +1,4 @@
-resource "aws_vpc" "main" {
+resource "aws_vpc" "main_vpc" {
   cidr_block = "10.10.0.0/16"
 }
 
@@ -12,7 +12,7 @@ resource "aws_subnet" "" {
 }
 
 resource "aws_internet_gateway" "gw" {
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.main_vpc.id
 
   tags = {
     Name = "main"
