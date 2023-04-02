@@ -2,12 +2,6 @@ resource "aws_elb" "frontlb" {
   name               = "frontlb"
   availability_zones = ["us-west-2a", "us-west-2c"]
   listener {
-    instance_port     = 80
-    instance_protocol = "http"
-    lb_port           = 8080
-    lb_protocol       = "http"
-  }
-  listener {
     instance_port     = 8080
     instance_protocol = "http"
     lb_port           = 8080
