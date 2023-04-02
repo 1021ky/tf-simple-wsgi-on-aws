@@ -7,6 +7,18 @@ resource "aws_elb" "frontlb" {
     lb_port           = 8080
     lb_protocol       = "http"
   }
+  listener {
+    instance_port     = 8080
+    instance_protocol = "http"
+    lb_port           = 8080
+    lb_protocol       = "http"
+  }
+  listener {
+    instance_port     = 3031
+    instance_protocol = "http"
+    lb_port           = 8081
+    lb_protocol       = "http"
+  }
 }
 
 resource "aws_lb_target_group" "frontlb-tg" {
@@ -20,4 +32,9 @@ resource "aws_lb_target_group_attachment" "front-webserver" {
   target_group_arn = aws_lb_target_group.frontlb-tg.arn
   target_id        = aws_instance.web.id
   port             = 80
+}
+resource "aws_lb_target_group_attachment" "front-appbserver" {
+  target_group_arn = aws_lb_target_group.frontlb-tg.arn
+  target_id        = aws_instance.app.id
+  port             = 3031
 }
